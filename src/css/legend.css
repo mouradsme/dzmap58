@@ -1,0 +1,15 @@
+.legend {
+    width: 100px;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.legend>div:first-child {
+    height: 12px;
+    font-size: 10px;
+    line-height: 10px;
+}
+
+.legend>div:nth-child(2) {
+    height: 12px;
+}

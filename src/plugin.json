@@ -1,0 +1,28 @@
+{
+    "type": "panel",
+    "name": "dzmap",
+    "id": "mouradsme-dzmap",
+    "info": {
+        "description": "",
+        "author": {
+            "name": "Mourad Bousserouel",
+            "url": "https://mourads.me"
+        },
+        "keywords": [],
+        "logos": {
+            "small": "img/logo.svg",
+            "large": "img/logo.svg"
+        },
+        "links": [{
+
+            "name": "License"
+        }],
+        "screenshots": [],
+        "version": "1.2.2",
+        "updated": "%TODAY%"
+    },
+    "dependencies": {
+        "grafanaDependency": ">=7.0.0",
+        "plugins": []
+    }
+}

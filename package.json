@@ -1,0 +1,36 @@
+{
+    "name": "mouradsme-dzmap-58",
+    "version": "1.4.2.58",
+    "description": "Use Algerian Map as a Choropleth Map",
+    "scripts": {
+        "build": "grafana-toolkit plugin:build",
+        "test": "grafana-toolkit plugin:test",
+        "dev": "grafana-toolkit plugin:dev",
+        "watch": "grafana-toolkit plugin:dev --watch",
+        "sign": "grafana-toolkit plugin:sign",
+        "start": "yarn watch"
+    },
+    "author": "Mourad Bousserouel",
+    "license": "Apache-2.0",
+    "devDependencies": {
+        "@babel/plugin-syntax-jsx": "^7.16.7",
+        "@grafana/data": "latest",
+        "@grafana/toolkit": "latest",
+        "@grafana/ui": "latest",
+        "@types/jquery": "^3.5.14",
+        "emotion": "10.0.27"
+    },
+    "engines": {
+        "node": ">=14"
+    },
+    "dependencies": {
+        "@grafana/runtime": "^8.4.5",
+        "@svgdotjs/svg.js": "^3.1.2",
+        "@szhsin/react-menu": "^3.0.0",
+        "chart.js": "^3.7.1",
+        "chroma-js": "^2.4.2",
+        "react-chartjs-2": "^4.0.1",
+        "react-svg-pan-zoom": "^3.11.0",
+        "svg-pan-zoom": "github:ariutta/svg-pan-zoom"
+    }
+}

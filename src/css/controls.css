@@ -1,0 +1,8 @@
+button.control {
+    background: white;
+    border: none;
+    color: black;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+}

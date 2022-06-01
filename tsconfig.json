@@ -1,0 +1,17 @@
+{
+  "extends": "./node_modules/@grafana/toolkit/src/config/tsconfig.plugin.json",
+  "include": ["src", "types"],
+  "exclude": ["node_modules", "dist/**/*"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "./src",
+    "baseUrl": "./src",
+    "typeRoots": ["./node_modules/@types"],
+	  "strict": false,
+	  "noImplicitAny": false, 
+	  "noImplicitReturns": false,
+    "allowJs": true,
+    "skipLibCheck": true,
+
+  }
+}
