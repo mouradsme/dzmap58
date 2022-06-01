@@ -6,7 +6,7 @@ import { addStyle } from 'js/head';
 import { get as Map } from './maps/map_58'
 
 export default function DZMap(props) {
-  const { id, height, DataLinks, Overrides, Parent } = props; 
+  const { id, height, DataLinks, Overrides, Parent, options, Circles} = props; 
   const [menuProps, toggleMenu] = useMenuState();
   const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
      
@@ -34,9 +34,10 @@ export default function DZMap(props) {
     }
 
     addStyle(`${ParentElem} #${MapContainerId} { width: 100%; } `)
-});
     
-  return (<>
+  });
+  
+  var Rendered = [
     <div id={MapContainerId} style={{width: 'fit-content(70%)', margin: 'auto'}} onContextMenu={e => {
     e.preventDefault();
     setAnchorPoint({ x: e.clientX, y: e.clientY });
@@ -46,7 +47,12 @@ export default function DZMap(props) {
         onClose={() => toggleMenu(false)}>
         {MenuItems}
     </ControlledMenu>
-    {  Map(id, height)}
+    {  Map(id, height, Circles, options)}
     </div>
-  </>);
+  ]
+    
+
+  return <>{Rendered}</>;
 }
+
+

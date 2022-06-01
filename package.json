@@ -14,6 +14,7 @@
     "license": "Apache-2.0",
     "devDependencies": {
         "@babel/plugin-syntax-jsx": "^7.16.7",
+        "@babel/preset-typescript": "^7.17.12",
         "@grafana/data": "latest",
         "@grafana/toolkit": "latest",
         "@grafana/ui": "latest",

@@ -2,10 +2,7 @@ import $ 							from 'jquery'
 import chroma 						from 'chroma-js';
 import { MapData } 					from 'js/MapUtils'
 import { Coloring } 				from 'js/Coloring'
-import { createLegend } 			from 'js/Legend';
-import { createCircles } 			from 'js/Circles'
 import { Styler, createArrayOfkey } from 'js/Utils'
-
 import './css/legend.css'
 
 export const InitData = (data: any, A: any, Which: number = null) => {
@@ -51,13 +48,14 @@ export const InitData = (data: any, A: any, Which: number = null) => {
 	// New ranges is an extension of the ranges array by a factor of prec
 	// Meaning that each element in Ranges, will be divided into prec elements including the element itself
 	Coloring.WilayasColoring(Fields, Colors, newRanges, which, MapStyler, `${ParentElem} ${MapContainer}`, options)
-	createCircles(MapData.Circles, ParentElem, MapContainer, options)
-	createLegend(Ranges, newRanges, Colors, A.id, options)
-	
+	// createLegend(Ranges, newRanges, Colors, A)
+
 	return {
 		MapStyler, 
 		Wilayas: MapData.Wilayas, 
 		Circles: MapData.Circles,
 		WColors: Coloring.WColors,
+		Ranges, newRanges, Colors
+
 	}
 } 
