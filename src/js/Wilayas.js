@@ -58,3 +58,14 @@ export const WilayaNames = {
     'w57': "El Meghaier",
     'w58': "El Menia"
 }
+
+export const Parents = {
+    "w01": [49, 50],
+    "w07": [51],
+    "w08": [52],
+    "w11": [53, 54],
+    "w30": [55],
+    "w33": [56],
+    "w39": [57],
+    "w47": [58]
+}

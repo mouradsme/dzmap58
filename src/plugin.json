@@ -18,7 +18,7 @@
             "name": "License"
         }],
         "screenshots": [],
-        "version": "1.2.2",
+        "version": "%VERSION%",
         "updated": "%TODAY%"
     },
     "dependencies": {

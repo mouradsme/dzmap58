@@ -72,14 +72,6 @@ export const plugin = new PanelPlugin<SimpleOptions>(DZMapPanel)
       showIf: config => config.choroplethDiv !== 'byLevel'  &&  config.choroplethDiv === "byInterval",
       category: ["Options des classes"]
     })
-  .addBooleanSwitch ({
-      path: 'showLegend',
-      name: 'Légende',
-      description: '',
-      defaultValue: true,
-      category: ["Options de la Légende"]
-
-    })
   .addRadio({
       path: 'spectrum',
       defaultValue: 'SingleColor',
@@ -189,4 +181,20 @@ export const plugin = new PanelPlugin<SimpleOptions>(DZMapPanel)
       defaultValue: "red",
       category: ["Options des Cercles"]
     })
+    .addBooleanSwitch ({
+        path: 'showLegend',
+        name: 'Légende',
+        description: '',
+        defaultValue: true,
+        category: ["Options Additionnels"]
+  
+      })
+      .addBooleanSwitch ({
+          path: 'MergeWilayas',
+          name: 'Fusionner',
+          description: '',
+          defaultValue: false,
+          category: ["Options Additionnels"]
+    
+        })
 });

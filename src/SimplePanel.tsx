@@ -1,4 +1,5 @@
 import Legend							from './ts/Legend'
+import Tooltip							from './ts/Tooltip'
 import { Select } 						from '@grafana/ui';
 import { InitData } 					from './load';
 import { addStyle } 					from 'js/head';
@@ -6,7 +7,6 @@ import { PanelProps } 					from '@grafana/data';
 import { SimpleOptions } 				from 'types'; 
 import React, { useState, useEffect }	from 'react';
 import DZMap  							from './map'
-import { dzTooltip, ttStyle} 			from 'js/tooltip'
 
 import './css/controls.css'
 import svgPanZoom from 'svg-pan-zoom'
@@ -40,8 +40,7 @@ export const DZMapPanel: React.FC<Props> = (A) => {
 	let showLegend 		= (options.showLegend) ? [ <Legend Ranges={Load.Ranges} newRanges={Load.newRanges} Colors={Load.Colors} Panel={A.id} options={options} />] : []
 	let gridOpts 		= (options.showLegend) ? 'auto 100px' : 'auto'
 
-	dzTooltip(`#${ttId}`, Load.Wilayas, labels, pid) 
-	addStyle(Load.MapStyler._Style + ttStyle(options.Color_1, `[data-panelid='${pid}']`))
+	addStyle(Load.MapStyler._Style )
 
 	useEffect(() => {
 		const s = svgPanZoom(`#${MapContainer}`)
@@ -68,11 +67,12 @@ export const DZMapPanel: React.FC<Props> = (A) => {
 		setWhich(selectableValue.value) 
 	}} />
 	</div>
-	<div id={ttId}></div>
+	<Tooltip id={ttId} Parent={pid} Color={options.Color_1} Wilayas={Load.Wilayas} Labels={labels}></Tooltip>
+
     <div style={{display: 'grid', gridTemplateColumns: gridOpts }}>
 		<div style={{margin: "auto", width: "100%"}}>
 		<DZMap 
-			Parent={A.id} 
+			Parent={pid} 
 			id={MapContainer} 
 			which={which} 
 			Circles={Load.Circles} 

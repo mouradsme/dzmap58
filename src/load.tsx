@@ -15,7 +15,7 @@ export const InitData = (data: any, A: any, Which: number = null) => {
 			which 			= Which == null ? options.whichClass : Which,	// Which class is used for data visualization
 			MapStyler		= Styler		// Map Style (CSS)
 
-			MapData.Populate(Fields, which, options.circleLabel)
+			MapData.Populate(Fields, which, options.circleLabel, options.MergeWilayas)
 	const 	Min 			= MapData.Min, 
 		  	Max 			= MapData.Max,
 			diff 			= Max - Min, 	 // Start by calculating the spread (the difference between the highest value and the lowest value)

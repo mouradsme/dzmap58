@@ -15,7 +15,7 @@ export const Coloring = {
                 const Values = value.values.get(0).split(','),
                     val = Values[which]
                 const Color = chroma(Colors[closest(val, newRanges)]).brighten(options.MaxInt).saturate(options.Saturation)
-                MapStyler.Style(`fill: ${Color}; transition: all .2s ease-in-out;); `)
+                MapStyler.Style(`fill: ${Color}; transition: all .2s ease-in-out; `)
                 MapStyler.Style(`filter: brightness(1.5);`, 'hover')
                 this.WColors[id] = Color
             })

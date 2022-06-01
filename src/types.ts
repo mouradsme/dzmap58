@@ -13,6 +13,7 @@ export interface SimpleOptions {
   MaxInt: number;
   Saturation: number;
   showLegend: boolean;
+  MergeWilayas: boolean;
   circles: boolean;
   circleLabel: number;
   circleRadius: number;
