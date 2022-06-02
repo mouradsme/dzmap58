@@ -1,8 +1,7 @@
-
-import * as React from 'react';
+import React from 'react';
 import { useEffect } from 'react'
 import $ from 'jquery'
-import Circles from './circles_48';
+import Circles from './circles_48'
 export function minmax(Circles) {
 	let max = 0
 	let min = null
@@ -18,11 +17,15 @@ export function get(id, height, CirclesValues, options) {
 	const { max } = minmax(CirclesValues)
         $(`#${id} .WilayaCircle`).each((i, item) => {
             let wid = $(item).attr('id')
-            let radius = Number(Circles[wid]) * options.circleRadius / max
+            let radius = Number(CirclesValues[wid]) * options.circleRadius / max
                 $(item).attr("r", `${radius}`);
                 $(item).attr("fill", options.circleColor);
                 $(item).css('pointer-events', "none")
         })
+        $(`#${id} .wilaya`).hover(function(){
+			let cid = '#c' + $(this).attr('id') 
+			$(cid).css('filter', 'brightness(1.5)')
+		})
 	}, [options])
 
 return (<svg height={height} width="100%" id={id} baseProfile="tiny" fill="#000000" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" version="1.2" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">

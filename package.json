@@ -1,6 +1,6 @@
 {
-    "name": "dzmap-48",
-    "version": "1.4.3.48",
+    "name": "dzmap-58",
+    "version": "1.4.3.58",
     "description": "Use Algerian Map as a Choropleth Map",
     "scripts": {
         "build": "grafana-toolkit plugin:build",

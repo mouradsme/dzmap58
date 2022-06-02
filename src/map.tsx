@@ -36,23 +36,19 @@ export default function DZMap(props) {
     addStyle(`${ParentElem} #${MapContainerId} { width: 100%; } `)
     
   });
-  
-  var Rendered = [
-    <div id={MapContainerId} style={{width: 'fit-content(70%)', margin: 'auto'}} onContextMenu={e => {
-    e.preventDefault();
-    setAnchorPoint({ x: e.clientX, y: e.clientY });
-    toggleMenu(true);
-    }}>
-    <ControlledMenu {...menuProps} anchorPoint={anchorPoint}
-        onClose={() => toggleMenu(false)}>
-        {MenuItems}
-    </ControlledMenu>
-    {  Map(id, height, Circles, options)}
-    </div>
-  ]
-    
-
-  return <>{Rendered}</>;
+  var _Map = Map(id, height, Circles, options); 
+  return <>
+  <div id={MapContainerId} style={{width: 'fit-content(70%)', margin: 'auto'}} onContextMenu={e => {
+  e.preventDefault();
+  setAnchorPoint({ x: e.clientX, y: e.clientY });
+  toggleMenu(true);
+  }}>
+  <ControlledMenu {...menuProps} anchorPoint={anchorPoint}
+      onClose={() => toggleMenu(false)}>
+      {MenuItems}
+  </ControlledMenu>
+  { _Map }
+  </div></>;
 }
 
 

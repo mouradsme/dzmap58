@@ -1,6 +1,5 @@
 type ChoroplethType = 'byLevel' | 'byInterval' | 'Linear'
 type spectrumTypes = 'SingleColor' | 'Heatmap'
-type MapTypes = 48 | 58
 export interface SimpleOptions {
   Labels: string;
   choroplethDiv: ChoroplethType;
@@ -21,5 +20,4 @@ export interface SimpleOptions {
   Color_1: string;
   Color_2: string;
   Color_3: string;
-  MapType: MapTypes;
 }

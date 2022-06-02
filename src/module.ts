@@ -19,6 +19,7 @@ export const plugin = new PanelPlugin<SimpleOptions>(DZMapPanel)
 })
 .setPanelOptions(builder => {
   return builder
+
   .addTextInput({
     path: 'Labels',
     name: 'Titres/Classes',
