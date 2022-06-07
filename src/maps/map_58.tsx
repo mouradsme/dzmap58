@@ -12,7 +12,7 @@ export function minmax(Circles) {
 	}
 	return { min, max }
   }
-export function get(id, height, CirclesValues, options) {
+export function get(id, height, CirclesValues, options, whichCircle) {
 	useEffect(() => {
 	const { max } = minmax(CirclesValues)   
         $(`#${id} .WilayaCircle`).each((i, item) => {
@@ -26,7 +26,7 @@ export function get(id, height, CirclesValues, options) {
 			let cid = '#c' + $(this).attr('id') 
 			$(cid).css('filter', 'brightness(1.5)')
 		})		
-		}, [options])
+		}, [options, whichCircle])
 return (<svg height={height} width="100%" id={id} baseProfile="tiny" fill="#000000" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" version="1.2" viewBox="-248.385 -239.386 982.451 955.452" xmlns="http://www.w3.org/2000/svg">
 
 <polygon className="wilaya" id="w01" fill="#86AAE0" stroke="#FFFFFF" stroke-width="0.75" stroke-linecap="round" points="251.102,224.174 

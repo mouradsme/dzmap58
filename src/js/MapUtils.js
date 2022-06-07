@@ -6,19 +6,21 @@ export const MapData = {
     Circles: [],
     Max: 0,
     Min: 0,
-    Legend(Ranges, newRanges, Colors) {
+    Legend(Ranges, Colors) {
         let Legend = []
         for (let i = 0; i < Ranges.length; i++) {
 
             let feText = `${Ranges[i]}` + ((i == Ranges.length - 1) ? '+' : ' - ') + `${i == Ranges.length - 1 ? '' : Ranges[i+1]}`
-            let Color = Colors[closest(Ranges[i], newRanges)]
+            let Color = Colors[closest(Ranges[i], Ranges)]
             Legend.push([feText, Color])
         }
         return Legend
     },
-    Populate(Fields, which, CircleLabel, Merge = false) {
+    Populate(Fields, Which, CircleLabel, Merge = false) {
         let Max = 0 // Initiate Minmax
         let Min = 0 // Initiate Minmax
+        let which = Which.which
+        let whichCircle = Which.whichCircle
         for (let i = 0; i < Fields.length; i++) { // Iterate through the retrieved fields
             let id = Fields[i].name // Set the ID for the current field 
                 // In our case, each field represent either a Wilaya (w01 through w48) + any other columns in the table (ex: id, time ...)
@@ -56,7 +58,7 @@ export const MapData = {
             if (i == 0) Min = val // If this is the start of the iterations, then set Min to the value we get from the very first wilaya 
             Min = val < Min ? val : Min // If the value is smaller than the one previously stored in Min, set Min to this new smaller value
             this.Wilayas[id] = Values // Store the Values of the wilaya inside the wilayas object identified by an id (which is the wilaya name, aka: column name from DB)	
-            this.Circles[`c${id}`] = Values[CircleLabel - 1] // Add the desired value to the Circles object, and identify it by the wilaya id
+            this.Circles[`c${id}`] = Values[whichCircle] // Add the desired value to the Circles object, and identify it by the wilaya id
                 // Note that options.circleLabel is used here as a means to give the user control on which data should the circles represent,
                 // For example :
 

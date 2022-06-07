@@ -54,10 +54,7 @@ export const plugin = new PanelPlugin<SimpleOptions>(DZMapPanel)
       name: 'Nombre de niveaux',
       description: 'Si par exemple la différence entre la valeur maximale et la valeur minimale parmi les données est de 7000, celle-ci va être divisée par la valeur choisie dans cette option pour préparer les niveaux de la charte Choropleth',
       defaultValue: 5,
-      settings: {
-        min: 2,
-        step: 1
-      },
+
       showIf: config => config.choroplethDiv === 'byLevel' ,
       category: ["Options des classes"]
     })
@@ -66,10 +63,6 @@ export const plugin = new PanelPlugin<SimpleOptions>(DZMapPanel)
       name: 'Nombre d\'éléments dans chaque niveau',
       description: 'Cette option permet de créer les niveaux commençant de la valeur 0 avec un pas choisi dans cette option (1000 par exemple), jusqu\'une valeur égale ou supérieure à la valeur maximale ',
       defaultValue: 100,
-      settings: {
-        min: 1,
-        step: 1
-      },
       showIf: config => config.choroplethDiv !== 'byLevel'  &&  config.choroplethDiv === "byInterval",
       category: ["Options des classes"]
     })

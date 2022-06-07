@@ -1,9 +1,12 @@
 export function closest(num, arr) {
     for (var i = 1; i < arr.length; i++) {
-        if (num < arr[i])
+        if (num < arr[i]) {
             return i - 1
-        if (i == arr.length - 1)
+        }
+        if (i == arr.length - 1) {
+
             return i
+        }
     }
     return -1;
 }

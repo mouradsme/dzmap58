@@ -27,13 +27,14 @@ export const DZMapPanel: React.FC<Props> = (A) => {
 			MapContainer  			= "dzmap-"  + pid,
 		    ttId 					= `tooltipContainer-${pid}`
 	let 	[which, setWhich] 		= useState(0);
+	let 	[whichCircle, setWhichCircle] = useState(0);
 	var 	Overrides 				= {}
 
 	A.fieldConfig.overrides.forEach((item) => {
 		Overrides[item.matcher.options] = item.properties[0].value[0]
 	})
 	
-	var 	Load 		= InitData(data, A, which)
+	var 	Load 		= InitData(data, A, which, whichCircle)
 	const 	labels 		= options.Labels.split(','),
 	 		Options 	= Array.from({length: labels.length}, (x, i) => { return {label: labels[i], value: i } } )
 
@@ -59,14 +60,7 @@ export const DZMapPanel: React.FC<Props> = (A) => {
 
 
  return (<>
-	<div className="title" style={{width: "100px", position: "absolute", right: 0, top: 0}}>
-	<Select options={Options} value={which} onChange={(selectableValue) => {
-		var url = new URL(window.location.href);
-		url.searchParams.set('which', String(selectableValue.value));
-		window.history.pushState(null, null, url.href)
-		setWhich(selectableValue.value) 
-	}} />
-	</div>
+	
 	<Tooltip id={ttId} Parent={pid} Color={options.Color_1} Wilayas={Load.Wilayas} Labels={labels}></Tooltip>
 
     <div style={{display: 'grid', gridTemplateColumns: gridOpts }}>
@@ -80,9 +74,24 @@ export const DZMapPanel: React.FC<Props> = (A) => {
 			Overrides={Overrides} 
 			height={A.height} 
 			options={options} 
+			whichCircle={whichCircle}
 		/>
 			<div id="controls">
 				<button className='control' id={"resetZoom-" + A.id} >Reset</button>
+				<div className="title" style={{width: "100px", position: "absolute", top: 30}}>
+	<Select options={Options} value={which} onChange={(selectableValue) => {
+		var url = new URL(window.location.href);
+		url.searchParams.set('which', String(selectableValue.value));
+		window.history.pushState(null, null, url.href)
+		setWhich(selectableValue.value) 
+	}} />
+	<Select options={Options} value={whichCircle} onChange={(selectableValue) => {
+		var url = new URL(window.location.href);
+		url.searchParams.set('whichCircle', String(selectableValue.value));
+		window.history.pushState(null, null, url.href)
+		setWhichCircle(selectableValue.value) 
+	}} />
+	</div>
 			</div>
 		</div>
 		{showLegend}

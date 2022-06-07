@@ -12,7 +12,7 @@ export function minmax(Circles) {
 	}
 	return { min, max }
   }
-export function get(id, height, CirclesValues, options) {
+export function get(id, height, CirclesValues, options, whichCircle) {
 	useEffect(() => {
 	const { max } = minmax(CirclesValues)
         $(`#${id} .WilayaCircle`).each((i, item) => {
@@ -26,7 +26,7 @@ export function get(id, height, CirclesValues, options) {
 			let cid = '#c' + $(this).attr('id') 
 			$(cid).css('filter', 'brightness(1.5)')
 		})
-	}, [options])
+	}, [options, whichCircle])
 
 return (<svg height={height} width="100%" id={id} baseProfile="tiny" fill="#000000" stroke="#000" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" version="1.2" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
 

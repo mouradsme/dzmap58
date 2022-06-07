@@ -3,7 +3,9 @@ import chroma from 'chroma-js';
 
 export const Coloring = {
     WColors: [],
-    WilayasColoring(Fields, Colors, newRanges, which, MapStyler, ParentSelector, options) {
+    WilayasColoring(Fields, Colors, newRanges, Which, MapStyler, ParentSelector, options) {
+        let which = Which.which
+            // let whichCircle = Which.whichCircle
         try {
             Fields.filter(value => {
                 if (value.name.match(/^(?!w)\w+$/)) return false;
